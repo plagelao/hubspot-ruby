@@ -140,10 +140,11 @@ module Hubspot
       end
     end
 
-    attr_reader :properties, :vid, :is_new
+    attr_reader :properties, :vid, :is_new, :list_memberships
 
     def initialize(response_hash)
       props = response_hash['properties']
+      @list_memberships = response_hash['list-memberships']
       @properties = Hubspot::Utils.properties_to_hash(props) unless props.blank?
       @vid = response_hash['vid']
     end

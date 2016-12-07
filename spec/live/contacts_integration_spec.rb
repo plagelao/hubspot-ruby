@@ -17,6 +17,7 @@ describe "Contacts API Live test", live: true do
 
     expect(contact["firstname"]).to eql "Clint"
     expect(contact["lastname"]).to eql "Eastwood"
+    expect(contact.list_memberships).to be_empty
 
     expect(contact.destroy!).to be_true
     expect(Hubspot::Contact.find_by_email("create_delete_test@hsgemtest.com")).to be_nil
